@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    <head>
+        <title>NLP News Project</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel='stylesheet' type='text/css'>
+        <style>
+            body
+            {
+                font-family: "Permanent Marker";
+                background-color: black;
+                font-size: 30;
+            }
+            .cont
+            {
+                background-color: black;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class="page-header">
+            
+            <h1 align="center"><a href="{% url 'News:home' %}">Temporal News Condenser</a></h1>
+        </div>
+        <div class="container panel panel-primary col-4 cont">
+            <div class="row">
+                <div align = "center" class="form-page bg-dark text-primary">
+                    {% block content %}
+   					<h2 align="center">Search</h2>
+    				<form class="form-group" method="POST">{% csrf_token %}
+        			     {{ form.as_p }}
+        			     <button type="submit" class="save btn btn-primary btn-lg">Search</button>
+    				</form>
+					{% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

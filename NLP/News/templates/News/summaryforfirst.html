@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+	    {% load staticfiles %} 
+		<title></title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel='stylesheet' type='text/css'>
+        <style>
+            body
+            {
+                font-family: "Permanent Marker";
+                background-color: black;
+                font-size: 30;
+            }
+            .cont
+            {
+                background-color: black;
+            }
+        </style>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="container text-primary">
+			<h1 align="center"> UPDATES </h1>
+			<div class="container">
+			  {% for p in final_li %}
+			    <div class="container panel panel-primary cont"> 
+			  	<h2><a href="{% url 'News:singledate' date=p.1 %}"
+			     title="Click here to read the about all the articles on the day" class="text-danger"> {{ p.1 }}</a></h2>
+			   
+			    <p> {{ p.2 }}</p>
+			    </div> 
+			  {% endfor %}
+			  </div>
+		</div>
+	  </body>
+	  </html>
